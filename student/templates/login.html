@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+<h1>Student Login Form</h1>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<form method="POST" action="/login" enctype = "multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td><input type="email" name="email" placeholder="Enter email"></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>Password</td>
+            <td>:</td>
+            <td><input type="password" name="password" placeholder="Enter password"></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Login"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

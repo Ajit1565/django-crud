@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Student Form</h1>
+<form method="POST" action="/update/{{ student.id }}">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td><input type="text" name="name" required  value="{{ student.name }}"/></td>
+        </tr>
+        <tr>
+            <td>Roll No.</td>
+            <td>:</td>
+            <td><input type="number" name="roll_no" required  value="{{ student.roll_no }}"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td><input type="email" name="email" required  value="{{ student.email }}"/></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>:</td>
+            <td><input type="text" name="mobile" required  value="{{ student.mobile }}"/></td>
+        </tr>
+        <tr>
+            <td>Marks</td>
+            <td>:</td>
+            <td><input type="number" name="marks" required  value="{{ student.marks }}"/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>:</td>
+            <td><input type="text" name="password" required  value="{{ student.password }}"/></td>
+        </tr>
+         <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td>{{ student.TYPE_SELECT }}
+            </td>
+        </tr>
+
+
+         <tr>
+            <td>Course</td>
+            <td>:</td>
+            <td><input type="radio" name="course" value="PHP" {% if  student.course == "PHP" %} checked {% endif %}>PHP
+                <input type="radio" name="course" value="PYTHON" {% if  student.course == "PYTHON" %} checked {% endif %} >PYTHON
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Update"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

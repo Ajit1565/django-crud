@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="">Student List</h1>
+<a href="/add_student">New Student</a><br><br>
+
+<a href="/mail">Send Mail</a><br><br>
+
+<a href="/login">Login</a><br><br>
+
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<table border="1" >
+    <tr>
+        <th>Id</th>
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Marks</th>
+        <th>Create date</th>
+        <th>Update date</th>
+        <th>Action</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.roll_no }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.mobile }}</td>
+        <td>{{ student.marks }}</td>
+        <td>{{ student.create_date }}</td>
+        <td>{{ student.update_date }}</td>
+        <td>
+            <a href="/detail/{{ student.id }}">Detail</a>
+            <a href="/edit/{{ student.id }}">Edit</a>
+            <a href="/delete_students/{{ student.id }}" onclick="return confirm('Are you sure to delete?')" >Delete</a>
+        </td>
+    </tr>
+  {% endfor %}
+</table>
+<br><br>
+
+{% include "footer.html" %}
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Student Form</h1>
+<form method="POST" action="/add_student" enctype = "multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>Roll No.</td>
+            <td>:</td>
+            <td>{{ form.roll_no }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>:</td>
+            <td>{{ form.mobile }}</td>
+        </tr>
+        <tr>
+            <td>Marks</td>
+            <td>:</td>
+            <td>{{ form.marks }}</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>:</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td>{{ form.gender }}</td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>:</td>
+            <td><input type="radio" name="course" value="PHP">PHP<input type="radio" name="course" value="PYTHON">PYTHON</td>
+        </tr>
+
+
+         <tr>
+            <td>Profile</td>
+            <td>:</td>
+            <td>{{ form.picture }}</td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Save"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

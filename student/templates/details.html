@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Student Detail</h1>
+<h3>Name : {{ student.name }}</h3>
+<h3>roll_no : {{ student.roll_no }}</h3>
+<h3>email : {{ student.email }}</h3>
+<h3>mobile : {{ student.mobile }}</h3>
+<h3>marks : {{ student.marks }}</h3>
+<h3>file_name {{ student.picture }}</h3>
+<h3>Profile : <p>
+    {% if student.picture %}
+    <img src="{{ student.picture.url }}"/></p>
+    {% endif %}
+</h3>
+<h3>create_date : {{ student.create_date }}</h3>
+<h3>update_date : {{ student.update_date }}</h3>
+
+</body>
+</html>
